@@ -59,7 +59,7 @@ def find_expenses(expenses, search_term):
 
 
 def category_summary(expenses):
-    """Return a dictionary containing total spending for each category."""
+    """Return category totals ordered from highest to lowest spending."""
     summary = {}
 
     for expense in expenses:
@@ -71,7 +71,15 @@ def category_summary(expenses):
         else:
             summary[category] = amount
 
-    return summary
+    sorted_summary = dict(
+        sorted(
+            summary.items(),
+            key=lambda item: item[1],
+            reverse=True,
+        )
+    )
+
+    return sorted_summary
 
 
 def get_budget_status(expenses, budget):
