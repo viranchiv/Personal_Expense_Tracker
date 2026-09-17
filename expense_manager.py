@@ -1,7 +1,7 @@
 """
 Personal Expense Tracker - Expense Management
 
-Author: Viranchiv
+Author: Abdullah rashid 
 Purpose: Contains reusable functions for creating, displaying, searching,
 summarizing, calculating, and removing expense records.
 Starter Code/Resources: No starter code used. Built from course concepts.
