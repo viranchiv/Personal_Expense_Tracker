@@ -136,11 +136,13 @@ def handle_budget_status(expenses, budget):
 
     total = calculate_total(expenses)
     remaining = budget - total
+    percentage_used = (total / budget) * 100
 
     print("\n--- Budget Status ---")
-    print(f"Budget:    ${budget:,.2f}")
-    print(f"Spent:     ${total:,.2f}")
-    print(f"Remaining: ${remaining:,.2f}")
+    print(f"Budget:      ${budget:,.2f}")
+    print(f"Spent:       ${total:,.2f}")
+    print(f"Remaining:   ${remaining:,.2f}")
+    print(f"Budget Used: {percentage_used:.1f}%")
 
     if remaining > 0:
         print(f"You have ${remaining:,.2f} remaining.")
