@@ -14,7 +14,6 @@ from expense_manager import (
     category_summary,
     display_expenses,
     find_expenses,
-    get_budget_status,
     remove_expense,
 )
 
@@ -76,10 +75,19 @@ def handle_add_expense(expenses):
 
     amount = get_positive_amount("Amount: $")
 
-    categories = ("Food", "Transportation", "Housing", "Entertainment", "Health", "Other")
+    categories = (
+        "Food",
+        "Transportation",
+        "Housing",
+        "Entertainment",
+        "Health",
+        "Other",
+    )
+
     print("Categories:", ", ".join(categories))
 
     category = input("Category: ").strip().title()
+
     while category not in categories:
         print("Please choose one of the listed categories.")
         category = input("Category: ").strip().title()
@@ -90,7 +98,9 @@ def handle_add_expense(expenses):
 
 def handle_search(expenses):
     """Search for expenses by description or category."""
-    search_term = input("Enter a description or category to search: ").strip()
+    search_term = input(
+        "Enter a description or category to search: "
+    ).strip()
 
     if not search_term:
         print("Search term cannot be empty.")
@@ -136,7 +146,10 @@ def handle_remove_expense(expenses):
         return
 
     display_expenses(expenses)
-    choice = input("Enter the expense number to remove, or press Enter to cancel: ").strip()
+
+    choice = input(
+        "Enter the expense number to remove, or press Enter to cancel: "
+    ).strip()
 
     if not choice:
         print("Removal cancelled.")
@@ -147,7 +160,10 @@ def handle_remove_expense(expenses):
 
         if 0 <= index < len(expenses):
             removed = remove_expense(expenses, index)
-            print(f"Removed: {removed['description']} (${removed['amount']:.2f})")
+            print(
+                f"Removed: {removed['description']} "
+                f"(${removed['amount']:.2f})"
+            )
         else:
             print("That expense number does not exist.")
     except ValueError:
@@ -178,18 +194,33 @@ def run_tracker():
                 print("No expenses recorded yet.")
             else:
                 print("\n--- Spending by Category ---")
+
                 for category, amount in summary.items():
-                    print(f"{category:<18} ${amount:>10,.2f}")
+                    print(
+                        f"{category:<18} "
+                        f"${amount:>10,.2f}"
+                    )
+
         elif choice == "5":
-            print(f"Total spending: ${calculate_total(expenses):,.2f}")
+            print(
+                f"Total spending: "
+                f"${calculate_total(expenses):,.2f}"
+            )
+
         elif choice == "6":
             monthly_budget = handle_budget(monthly_budget)
+
         elif choice == "7":
             handle_budget_status(expenses, monthly_budget)
+
         elif choice == "8":
             handle_remove_expense(expenses)
+
         elif choice == "9":
-            print("Thank you for using Personal Expense Tracker. Goodbye!")
+            print(
+                "Thank you for using Personal Expense Tracker. "
+                "Goodbye!"
+            )
             break
 
 
