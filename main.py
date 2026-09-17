@@ -1,7 +1,7 @@
 """
 Personal Expense Tracker
 
-Author: Viranchiv
+Author: Abdullah rashid
 Purpose: Provides the main menu and user interaction for a command-line
 personal expense tracking application.
 Starter Code/Resources: No starter code used. Built from course concepts.
