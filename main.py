@@ -103,13 +103,12 @@ def handle_add_expense(expenses):
 
     add_expense(expenses, description, amount, category)
 
-print("\nExpense added successfully!")
-print("-" * 30)
-print(f"Description: {description}")
-print(f"Amount:     ${amount:,.2f}")
-print(f"Category:   {category}")
-print("-" * 30)
-
+    print("\nExpense added successfully!")
+    print("-" * 30)
+    print(f"Description: {description}")
+    print(f"Amount:     ${amount:,.2f}")
+    print(f"Category:   {category}")
+    print("-" * 30)
 
 def handle_search(expenses):
     """Search for expenses by description or category."""
